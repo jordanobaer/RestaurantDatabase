@@ -92,13 +92,12 @@ get '/report' do
       #add students to report
       if users[i].role == "Student\n"
         csv << [users[i].name]
-
       end
       i+=1
     end
   end
   #Download the file
-  send_file("report.csv")
+  send_file("report.csv", :type => 'txt/csv', :disposition => 'attachment')
   redirect to ('/')
 end
 
