@@ -108,11 +108,16 @@ end
 
 
 get '/restaurants' do
+  #Get restaurants path
   @restaurants =  Dir["public/websites/*.html"]
   print @restaurants
   erb :restaurants
 end
 
+get '/restaurants/public/websites/:file' do
+  #Open a restaurant website from the websites folder
+  File.read("public/websites/#{params[:file]}")
+end
 
 not_found do
   erb :not_found

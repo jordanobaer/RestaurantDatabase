@@ -33,9 +33,9 @@
 <div class="container">
 
   <%if @restaurants.any? %>
-      <% @restaurants.each do |el| %>
+      <% @restaurants.shuffle.each do |el| %>
 
-      <a href="<%= el %>"><%= el %></a>
+      <a href="/restaurants/<%= el %>"><%= el %></a>
       <% end %>
     <% else %>
         <p>No restaurants created</p>
