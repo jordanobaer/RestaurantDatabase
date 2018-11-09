@@ -7,9 +7,11 @@ require 'zip/zip'
 
 require './users'
 
+session_username = ""
 
 configure do
   enable :sessions
+
   #TODO get users from database
   #tmp = User.all
   #for el in tmp do
@@ -36,6 +38,9 @@ post '/save_file' do
 end
 
 get '/login' do
+  if session[:student] || session[:admin]
+    halt(401, 'Not Authorized')
+  end
   erb :login
 end
 
@@ -44,9 +49,13 @@ get '/upload_users' do
 end
 
 post '/login' do
+  if session[:student] || session[:admin]
+    halt(401, 'Not Authorized')
+  end
   user = User.first(name:params[:username])
   if (user && BCrypt::Password.new(user.password) == params[:password])
     puts 'FOUND'
+    session_username= user.name
     if(user.role == "TA\n" || user.role == "Instructor\n")
 
       session[:admin] = true
@@ -63,6 +72,7 @@ end
 
 get '/logout' do
   session.clear
+  session_username =""
   redirect to('/login')
 end
 
@@ -86,9 +96,20 @@ post '/upload_websites' do
 end
 
 
+post '/vote' do
+  halt(401, 'Not Authorized') unless session[:student]
+  #TODO Check if student already voted
+  if (params[:vote1]== params[:vote2] || params[:vote1] == params[:vote3] || params[:vote2] == params[:vote3])
+    print "Voting for the same site in different categories"
+  end
+
+  
+
+end
+
 get '/report' do
   halt(401, 'Not Authorized') unless session[:admin]
-
+  @voters = []
   #Create the CSV file
   CSV.open('report.csv', 'wb') do |csv|
     users = User.all
@@ -96,6 +117,30 @@ get '/report' do
     while(i<users.size)
       #add students to report
       if users[i].role == "Student\n"
+        tmp = users[i].name
+        @voters.push(tmp)
+
+        csv << [users[i].name]
+      end
+      i+=1
+    end
+  end
+  erb :report
+
+end
+
+get '/report/download' do
+  halt(401, 'Not Authorized') unless session[:admin]
+  @voters = []
+  #Create the CSV file
+  CSV.open('report.csv', 'wb') do |csv|
+    users = User.all
+    i =0
+    while(i<users.size)
+      #add students to report
+      if users[i].role == "Student\n"
+        @voters.push(users[i].name)
+
         csv << [users[i].name]
       end
       i+=1

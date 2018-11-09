@@ -11,7 +11,7 @@ class User
   property :name, String
   property :password, String
   property :role, String
-  property :voted, Boolean
+  property :voted, String
 end
 
 DataMapper.finalize()

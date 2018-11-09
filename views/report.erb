@@ -28,17 +28,16 @@
     <a href="/report" class="navbar-brand">Vote Report</a>
   <% end %>
 </nav>
-<div class="container">
-<h1>Login</h1>
-  <%# TODO validate user input  %>
-<form action="/login" method="POST">
-  <label for="username">Username: </label>
-  <input id= "username" type="text" name="username">
-  <label for="password">Password: </label>
-  <input id= "password" type="password" name="password">
-  <input type="submit" class="btn btn-primary" value="Log In">
-</form>
 
+
+
+
+<div class="container">
+  <% @voters.each do |el| %>
+    <p><%= el %></p>
+  <% end %>
+
+  <a href = "/report/download"><button type="button" class="btn btn-primary"> Get Report </button></a>
 </div>
 
 </body>

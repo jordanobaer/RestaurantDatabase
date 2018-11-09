@@ -25,18 +25,55 @@
 
   <% if session[:admin] %>
     <a href="/upload_websites" class="navbar-brand">Upload Websites</a>
-    <a href="/report" class="navbar-brand">Download Report</a>
-
+    <a href="/report" class="navbar-brand">Vote Report</a>
   <% end %>
 </nav>
 
 <div class="container">
-
+  <h1>Student Restaurants</h1>
   <%if @restaurants.any? %>
+    <ul class="list-group">
       <% @restaurants.shuffle.each do |el| %>
 
-      <a href="/restaurants/<%= el %>"><%= el %></a>
+        <li class="list-group-item"><a class="list-group-item list-group-item-action" href="/restaurants/<%= el %>"><%= el %></a></li>
       <% end %>
+    </ul>
+
+    <h2>Vote!</h2>
+    <form action="/vote" method="POST" enctype="multipart/form-data">
+    <div class="row">
+
+      <div class="col-sm">
+        <h3>First Place</h3>
+        <% @restaurants.each do |el| %>
+
+            <input type="radio" name="vote1" value="<%= el %>"> <%= el %>
+            <br>
+        <% end %>
+      </div>
+      <div class="col-sm">
+        <h3>Second Place</h3>
+        <% @restaurants.each do |el| %>
+            <input type="radio" name="vote2" value="<%= el %>"> <%= el %>
+            <br>
+        <% end %>
+      </div>
+      <div class="col-sm">
+        <h3>Third Place</h3>
+        <% @restaurants.each do |el| %>
+            <input type="radio" name="vote3" value="<%= el %>"> <%= el %>
+            <br>
+        <% end %>
+      </div>
+
+      </div>
+      <input type="submit" class="btn btn-primary" value="Upload">
+    </form>
+    </div>
+
+
+
+
     <% else %>
         <p>No restaurants created</p>
     <% end %>
