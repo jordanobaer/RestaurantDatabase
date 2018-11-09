@@ -46,7 +46,6 @@ end
 post '/login' do
   user = User.first(name:params[:username])
   if (user && BCrypt::Password.new(user.password) == params[:password])
-
     puts 'FOUND'
     if(user.role == "TA\n" || user.role == "Instructor\n")
 
@@ -57,9 +56,9 @@ post '/login' do
     redirect to ('/')
   else
       print "NOT FOUND #{params[:username]}"
+      redirect to ('login')
   end
 
-    erb :login
 end
 
 get '/logout' do
@@ -108,12 +107,20 @@ get '/report' do
 end
 
 
+get '/restaurants' do
+  @restaurants =  Dir["public/websites/*.html"]
+  print @restaurants
+  erb :restaurants
+end
+
+
 not_found do
   erb :not_found
 end
 
 
 #Unzip function from https://gist.github.com/Amitesh/1247229
+#Used to unzip the websites file uploaded by the admin
 def unzip_file (file, destination)
   Zip::ZipFile.open(file) { |zip_file|
     zip_file.each { |f|

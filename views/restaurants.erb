@@ -31,11 +31,15 @@
 </nav>
 
 <div class="container">
-  <h1>Upload Websites</h1>
-  <form action="/upload_websites" method="POST" enctype="multipart/form-data">
-    <input type="file" name="file">
-    <input type="submit" class="btn btn-primary" value="Upload">
-  </form>
+
+  <%if @restaurants.any? %>
+      <% @restaurants.each do |el| %>
+
+      <a href="<%= el %>"><%= el %></a>
+      <% end %>
+    <% else %>
+        <p>No restaurants created</p>
+    <% end %>
 </div>
 
 </body>

@@ -12,14 +12,15 @@
 
 </head>
 <body>
-<<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a href="/" class="navbar-brand">Home</a>
   <% if session[:admin] || session[:student] %>
     <a href="/logout" class="navbar-brand">Logout</a>
   <% else %>
     <a href="/login" class="navbar-brand">Login</a>
-  <% end %>
+   <% end %>
   <a href="/upload_users" class="navbar-brand">Upload Users</a>
+  <a href="/restaurants" class="navbar-brand">Restaurants</a>
 
   <% if session[:admin] %>
     <a href="/upload_websites" class="navbar-brand">Upload Websites</a>
@@ -27,8 +28,8 @@
 
   <% end %>
 </nav>
-
+<div class="container">
 <h1>Page not found</h1>
-
+</div>
 </body>
 </html>
