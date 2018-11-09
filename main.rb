@@ -2,6 +2,9 @@ require 'csv'
 require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'bcrypt'
+
+require 'zip/zip'
+
 require './users'
 
 
@@ -77,6 +80,9 @@ post '/upload_websites' do
   File.open("./public/#{@filename}", 'wb') do |f|
     f.write(file.read)
   end
+
+  unzip_file( file,"./public/websites")
+
   redirect to ('/')
 end
 
@@ -106,3 +112,14 @@ not_found do
   erb :not_found
 end
 
+
+#Unzip function from https://gist.github.com/Amitesh/1247229
+def unzip_file (file, destination)
+  Zip::ZipFile.open(file) { |zip_file|
+    zip_file.each { |f|
+      f_path=File.join(destination, f.name)
+      FileUtils.mkdir_p(File.dirname(f_path))
+      zip_file.extract(f, f_path) unless File.exist?(f_path)
+    }
+  }
+end
