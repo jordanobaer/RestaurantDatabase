@@ -1,9 +1,9 @@
 require 'dm-core'
 require 'dm-migrations'
 
-configure do
+
 DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/development.db")
-end
+
 
 class User
   include DataMapper::Resource
@@ -12,6 +12,9 @@ class User
   property :password, String
   property :role, String
   property :voted, String
+  property :vote1, String
+  property :vote2, String
+  property :vote3, String
 end
 
 DataMapper.finalize()
@@ -30,9 +33,10 @@ def addUsers(filename)
     user.name = info[0]
     user.password = info[1]
     user.role = info[2]
-    #user.voted = nil
+    user.voted = "NO"
+
     user.save
-    #print user
+    print user
   end
   f.close
 

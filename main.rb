@@ -103,7 +103,16 @@ post '/vote' do
     print "Voting for the same site in different categories"
   end
 
-  
+  user = User.first(name: session_username)
+  print user.name
+
+  if(user.voted == 'NO')
+    user.voted = 'YES'
+  else
+    print "USER VOTED"
+  end
+  #TODOO UPDATE USER IN DATABASE
+  #user.update
 
 end
 
@@ -117,7 +126,7 @@ get '/report' do
     while(i<users.size)
       #add students to report
       if users[i].role == "Student\n"
-        tmp = users[i].name
+        tmp = users[i].name + '   Voted: '+ users[i].voted
         @voters.push(tmp)
 
         csv << [users[i].name]

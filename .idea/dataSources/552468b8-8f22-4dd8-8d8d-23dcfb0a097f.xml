@@ -62,7 +62,23 @@
       <Position>4</Position>
       <DataType>VARCHAR(50)|0s</DataType>
     </column>
-    <key id="20" parent="8">
+    <column id="20" parent="8" name="voted">
+      <Position>5</Position>
+      <DataType>BOOLEAN|0s</DataType>
+    </column>
+    <column id="21" parent="8" name="vote1">
+      <Position>6</Position>
+      <DataType>VARCHAR(50)|0s</DataType>
+    </column>
+    <column id="22" parent="8" name="vote2">
+      <Position>7</Position>
+      <DataType>VARCHAR(50)|0s</DataType>
+    </column>
+    <column id="23" parent="8" name="vote3">
+      <Position>8</Position>
+      <DataType>VARCHAR(50)|0s</DataType>
+    </column>
+    <key id="24" parent="8">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
