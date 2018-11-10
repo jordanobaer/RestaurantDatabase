@@ -56,19 +56,17 @@ post '/login' do
   user = User.first(name:params[:username])
   if (user && BCrypt::Password.new(user.password) == params[:password])
     puts 'FOUND'
-    session_username= user.name
+    session_username = user.name
     if(user.role == "TA\n" || user.role == "Instructor\n")
 
       session[:admin] = true
     else
       session[:student] = true
     end
-    puts "TRIES AE #{@tries}"
     erb :home
   else
       print "NOT FOUND #{params[:username]}"
       @tries = 1
-      puts "TRIES AE #{@tries}"
       erb :login
   end
 
@@ -80,6 +78,8 @@ get '/logout' do
   session.clear
   session_username =""
   @tries = 0
+  @voted = false
+
   redirect to('/login')
 end
 
@@ -118,7 +118,7 @@ post '/vote' do
     redirect to ('/')
   else
     print "USER VOTED"
-    redirect to ('/restaurants')
+    redirect to ('//restaurants')
   end
 
 end
@@ -158,6 +158,8 @@ get '/report/download' do
   CSV.open('report.csv', 'wb') do |csv|
     users = User.all
     i =0
+    csv << ["Student", "Voted?", "First Place", "Second Place", "Third Place"]
+
     while(i<users.size)
       #add students to report
       if users[i].role == "Student\n"
@@ -173,11 +175,24 @@ get '/report/download' do
   redirect to ('/')
 end
 
-
+@voted = false
 get '/restaurants' do
   #Get restaurants path
   @restaurants =  Dir["public/websites/*.html"]
   print @restaurants
+
+  if session[:student]
+    user = User.first(name: session_username)
+    print user.name
+    if user.voted == 'NO'
+      @voted = false
+    else
+      @voted = true
+    end
+
+  end
+
+
   erb :restaurants
 end
 
