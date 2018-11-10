@@ -39,6 +39,12 @@
   <input type="submit" class="btn btn-primary" value="Log In">
 </form>
 
+  <% if @tries  == 1 %>
+    <div class="alert alert-danger" role="alert">
+      Incorrect username or password
+    </div>
+
+  <% end %>
 </div>
 
 </body>

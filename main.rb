@@ -48,6 +48,7 @@ get '/upload_users' do
   erb :upload_users
 end
 
+@tries = 0
 post '/login' do
   if session[:student] || session[:admin]
     halt(401, 'Not Authorized')
@@ -62,17 +63,23 @@ post '/login' do
     else
       session[:student] = true
     end
-    redirect to ('/')
+    puts "TRIES AE #{@tries}"
+    erb :home
   else
       print "NOT FOUND #{params[:username]}"
-      redirect to ('login')
+      @tries = 1
+      puts "TRIES AE #{@tries}"
+      erb :login
   end
+
+
 
 end
 
 get '/logout' do
   session.clear
   session_username =""
+  @tries = 0
   redirect to('/login')
 end
 
