@@ -107,12 +107,12 @@ post '/vote' do
   print user.name
 
   if(user.voted == 'NO')
-    user.voted = 'YES'
+    user.update(:voted => 'YES', :vote1 => params[:vote1], :vote2 => params[:vote2], :vote3 =>params[:vote3])
+    redirect to ('/')
   else
     print "USER VOTED"
+    redirect to ('/restaurants')
   end
-  #TODOO UPDATE USER IN DATABASE
-  #user.update
 
 end
 
@@ -126,10 +126,16 @@ get '/report' do
     while(i<users.size)
       #add students to report
       if users[i].role == "Student\n"
-        tmp = users[i].name + '   Voted: '+ users[i].voted
+        if users[i].voted == 'NO'
+          tmp = users[i].name + '   Voted: '+ users[i].voted
+        else
+          tmp = users[i].name + '   Voted: '+ users[i].voted + ' First Place: ' + users[i].vote1 + ' Second Place: ' + users[i].vote2 + ' Third Place: ' + users[i].vote3
+        end
+
+
         @voters.push(tmp)
 
-        csv << [users[i].name]
+        csv << [users[i].name, users[i].voted, users[i].vote1, users[i].vote2, users[i].vote3]
       end
       i+=1
     end
@@ -150,7 +156,7 @@ get '/report/download' do
       if users[i].role == "Student\n"
         @voters.push(users[i].name)
 
-        csv << [users[i].name]
+        csv << [users[i].name, users[i].voted, users[i].vote1, users[i].vote2, users[i].vote3]
       end
       i+=1
     end
