@@ -1,4 +1,6 @@
-Jordano Baer,YES,public/websites/restaurant3.html,public/websites/restaurant2.html,public/websites/restaurant1.html
-Lara Croft,YES,public/websites/restaurant2.html,public/websites/restaurant1.html,public/websites/restaurant3.html
-Homer Simpson,YES,public/websites/restaurant2.html,public/websites/restaurant1.html,public/websites/restaurant3.html
-Peter Parker,YES,public/websites/restaurant1.html,public/websites/restaurant2.html,public/websites/restaurant3.html
+Student,Voted?,First Place,Second Place,Third Place
+Jordano Baer,NO,,,
+Lara Croft,YES,restaurant3.html,restaurant2.html,restaurant1.html
+Homer Simpson,NO,,,
+Peter Parker,YES,restaurant1.html,restaurant2.html,restaurant3.html
+Bob,YES,restaurant1.html,restaurant2.html,restaurant3.html

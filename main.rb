@@ -102,12 +102,14 @@ post '/upload_websites' do
   redirect to ('/')
 end
 
-
+@failed = false
 post '/vote' do
   halt(401, 'Not Authorized') unless session[:student]
   #TODO Check if student already voted
   if (params[:vote1]== params[:vote2] || params[:vote1] == params[:vote3] || params[:vote2] == params[:vote3])
     print "Voting for the same site in different categories"
+    @failed = true
+    redirect to ('/restaurants')
   end
 
   user = User.first(name: session_username)
@@ -118,7 +120,7 @@ post '/vote' do
     redirect to ('/')
   else
     print "USER VOTED"
-    redirect to ('//restaurants')
+    redirect to ('/restaurants')
   end
 
 end
@@ -180,6 +182,7 @@ get '/restaurants' do
   #Get restaurants path
   @restaurants =  Dir["public/websites/*.html"]
   print @restaurants
+
 
   if session[:student]
     user = User.first(name: session_username)

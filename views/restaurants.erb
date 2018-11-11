@@ -34,8 +34,9 @@
   <%if !@restaurants.empty? %>
     <ul class="list-group">
       <% @restaurants.shuffle.each do |el| %>
-
-        <li class="list-group-item"><a class="list-group-item list-group-item-action" href="/restaurants/<%= el %>"><%= el %></a></li>
+        <% @tmp = el %>
+        <% @tmp.slice!("public/websites/") %>
+        <li class="list-group-item"><a class="list-group-item list-group-item-action" href="/restaurants/public/websites/<%= el %>"><%= @tmp %></a></li>
       <% end %>
     </ul>
 
@@ -92,6 +93,7 @@
         <p>No restaurants created</p>
     <% end %>
 </div>
+
 
 </body>
 </html>
