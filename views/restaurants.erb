@@ -33,10 +33,19 @@
   <h1>Student Restaurants</h1>
   <%if !@restaurants.empty? %>
     <ul class="list-group">
+      <% @current = 0 %>
       <% @restaurants.shuffle.each do |el| %>
         <% @tmp = el %>
-        <% @tmp.slice!("public/websites/") %>
-        <li class="list-group-item"><a class="list-group-item list-group-item-action" href="/restaurants/public/websites/<%= el %>"><%= @tmp %></a></li>
+        <% @i =0 %>
+        <% while @i<@tmp.size() %>
+          <% @i +=1 %>
+            <% if @tmp[@i] == '/' %>
+              <% @current = @i %>
+            <% end %>
+          <% end %>
+        <% print @current %>
+        <% @tmp.slice!(0, @current +1) %>
+        <li class="list-group-item"><a class="list-group-item list-group-item-action" href="/restaurants/public/websites/<%= el[0..el.size()-6] %>/<%= el %>"><%= @tmp %></a></li>
       <% end %>
     </ul>
 

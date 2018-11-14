@@ -178,9 +178,18 @@ get '/report/download' do
 end
 
 @voted = false
+@restaurants =[]
 get '/restaurants' do
   #Get restaurants path
-  @restaurants =  Dir["public/websites/*.html"]
+  #@restaurants =  Dir["public/websites/*.html"]
+  #TODO find all restaurants files and add to @restaurants
+  @restaurants =[]
+  folders =  Dir.entries('public/websites').select {|entry| File.directory? File.join('public/websites',entry) and !(entry =='.' || entry == '..') }
+  for el in folders do
+    file = (Dir.glob("public/websites/#{el}/**/*.html"))
+    @restaurants.push(file[0])
+  end
+
   print @restaurants
 
 
@@ -199,9 +208,9 @@ get '/restaurants' do
   erb :restaurants
 end
 
-get '/restaurants/public/websites/:file' do
+get '/restaurants/public/websites/:name/:filename' do
   #Open a restaurant website from the websites folder
-  File.read("public/websites/#{params[:file]}")
+  send_file("public/websites/#{params[:name]}/#{params[:filename]}")
 end
 
 not_found do
