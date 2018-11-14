@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37c5281f-15ca-46e5-855a-625a7a452857" name="Default Changelist" comment="Upload and unzip websites folder">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.rb" beforeDir="false" afterPath="$PROJECT_DIR$/main.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/websites/restaurant1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/websites/restaurant2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/websites/restaurant3.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/restaurants.erb" beforeDir="false" afterPath="$PROJECT_DIR$/views/restaurants.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/websites/Lara/Lara.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/websites/Nathan/Nathan.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/websites/Peter/Peter.html" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,7 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/RestaurantDatabase@main.rcov" NAME="main Coverage Results" MODIFIED="1542237050044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="FinalProject" />
+    <SUITE FILE_PATH="coverage/RestaurantDatabase@main.rcov" NAME="main Coverage Results" MODIFIED="1542237677662" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="FinalProject" />
     <SUITE FILE_PATH="coverage/Web_FinalProject@main.rcov" NAME="main Coverage Results" MODIFIED="1541706379712" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="FinalProject" />
     <SUITE FILE_PATH="coverage/RestaurantDatabase@IRB_console__FinalProject.rcov" NAME="IRB console: FinalProject Coverage Results" MODIFIED="1542234338221" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="FinalProject" />
     <SUITE FILE_PATH="coverage/FinalProject@IRB_console__FinalProject.rcov" NAME="IRB console: FinalProject Coverage Results" MODIFIED="1541639531077" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="FinalProject" />
@@ -202,7 +199,7 @@
     <session id="924622103">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.29" value="1" />
           <entry key="project.open.time.30" value="2" />
           <entry key="project.open.time.31" value="1" />
@@ -235,7 +232,7 @@
         <counts>
           <entry key="Ruby Console" value="640" />
           <entry key="erb" value="2157" />
-          <entry key="rb" value="4427" />
+          <entry key="rb" value="4440" />
           <entry key="txt" value="66" />
         </counts>
       </usages-collector>
@@ -243,7 +240,7 @@
         <counts>
           <entry key="PLAIN_TEXT" value="74" />
           <entry key="RHTML" value="2149" />
-          <entry key="Ruby" value="5067" />
+          <entry key="Ruby" value="5080" />
         </counts>
       </usages-collector>
     </session>
@@ -253,8 +250,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="212" column="7" selection-start-line="212" selection-start-column="7" selection-end-line="212" selection-end-column="7" />
+            <state relative-caret-position="493">
+              <caret line="215" column="12" lean-forward="true" selection-start-line="215" selection-start-column="12" selection-end-line="215" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -489,7 +486,7 @@
       <workItem from="1541885851449" duration="5749000" />
       <workItem from="1541961624214" duration="575000" />
       <workItem from="1542037449534" duration="1415000" />
-      <workItem from="1542227834423" duration="5920000" />
+      <workItem from="1542227834423" duration="6343000" />
     </task>
     <task id="LOCAL-00001" summary="Download .csv report">
       <created>1541721339154</created>
@@ -509,7 +506,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53568000" />
+    <option name="totallyTimeSpent" value="53991000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -529,7 +526,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32512316" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.24232456" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.24232456" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -659,8 +656,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="212" column="7" selection-start-line="212" selection-start-column="7" selection-end-line="212" selection-end-column="7" />
+        <state relative-caret-position="493">
+          <caret line="215" column="12" lean-forward="true" selection-start-line="215" selection-start-column="12" selection-end-line="215" selection-end-column="12" />
         </state>
       </provider>
     </entry>
