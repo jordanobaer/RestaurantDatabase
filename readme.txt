@@ -1,4 +1,12 @@
 1.Open a project in RubyMine. Choose the RestaurantDatabase as the project's folder.
+In the terminal, install the gems:
+gem install dm-core
+gem install dm-migrations
+gem install Zip
+gem install csv
+gem install bcrypt
+gem install sinatra
+gem install sinatra-contrib
 2.Run main.rb
 3.Open Google Chrome and access localhost:4567
 4.Create a .csv file with the users. The file contains username, password and role(Student or TA or Instructor) in order, or you can choose the csv file from the folder:example-files
