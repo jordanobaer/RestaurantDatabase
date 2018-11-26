@@ -1,5 +1,5 @@
-Jordano Baer,YES,Bob.html,Nathan.html,Lara.html
-Lara Croft,YES,restaurant3.html,restaurant2.html,restaurant1.html
-Homer Simpson,NO,,,
-Peter Parker,YES,restaurant1.html,restaurant2.html,restaurant3.html
-Bob,YES,restaurant1.html,restaurant2.html,restaurant3.html
+Jordano Baer,NO,,,
+Lara Croft,NO,,,
+Homer Simpson,YES,Bob.html,Nathan.html,Lara.html
+Peter Parker,YES,Homer.html,Bob.html,Lara.html
+Bob,NO,,,

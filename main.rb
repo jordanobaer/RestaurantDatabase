@@ -28,6 +28,10 @@ end
 
 #save the file in public folder
 post '/save_file' do
+  if params[:file].nil?
+    halt(401, 'No file uploaded')
+  end
+
   @filename = params[:file][:filename]
   file = params[:file][:tempfile]
   File.open("./public/#{@filename}", 'wb') do |f|
@@ -53,6 +57,8 @@ post '/login' do
   if session[:student] || session[:admin]
     halt(401, 'Not Authorized')
   end
+
+
   user = User.first(name:params[:username])
   if (user && BCrypt::Password.new(user.password) == params[:password])
     puts 'FOUND'
@@ -91,6 +97,9 @@ end
 
 post '/upload_websites' do
   halt(401, 'Not Authorized') unless session[:admin]
+  if params[:file].nil?
+    halt(401, 'No file uploaded')
+  end
   @filename = params[:file][:filename]
   file = params[:file][:tempfile]
   File.open("./public/#{@filename}", 'wb') do |f|
